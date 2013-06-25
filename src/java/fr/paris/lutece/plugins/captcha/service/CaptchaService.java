@@ -17,6 +17,8 @@ import org.apache.commons.lang.StringUtils;
  */
 public class CaptchaService implements ICaptchaService
 {
+    public static final String BEAN_NAME = "captcha.captchaService";
+
     private static final String DATASTORE_KEY_DEFAULT_CAPTCHA_ENGINE = "captcha.defaultProvider";
 
     /**

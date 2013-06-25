@@ -1,0 +1,21 @@
+<div class="well span5">
+	<form class="form-inline" action="jsp/admin/plugins/captcha/globalmanagement/DoUpdateDefaultCaptcha.jsp">
+		<fieldset>
+			<legend>#i18n{captcha.globalmanagement.panelTitle}</legend>
+   			<div class="control-group">
+   				<label class="control-label">#i18n{captcha.globalmanagement.captchaEngine} :</label>
+   				<div class="controls">
+   					<#if !current_captcha_engine??>
+   						<#assign current_captcha_engine = "">
+   					</#if>
+   					<select name="captcha_engine">
+   						<#list listCaptchaEngine as captchaEngine>
+   							<option value="${captchaEngine}" <#if current_captcha_engine == captchaEngine>selected="selected"</#if>>${captchaEngine}</option>
+   						</#list>
+   					</select>
+   					<button type="submit" class="btn btn-primary btn-small"><i class="icon-ok icon-white">&nbsp;</i>&nbsp;#i18n{portal.util.labelModify}</button>
+   				</div>
+   			</div>
+   		</fieldset>
+   	</form>
+</div>

@@ -8,4 +8,9 @@
 	<bean id="captcha.captchaService"
 		class="fr.paris.lutece.plugins.captcha.service.CaptchaService">
 	</bean>
+	
+	<!-- Captcha panel -->
+	<bean id="captcha.captchaLutecePanelJspBean"
+		class="fr.paris.lutece.plugins.captcha.web.CaptchaLutecePanelJspBean">
+	</bean>
 </beans>
