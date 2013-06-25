@@ -5,7 +5,7 @@
     <description>captcha.plugin.description</description>
     <provider>captcha.plugin.provider</provider>
     <provider-url>http://lutece.paris.fr</provider-url>
-    <icon-url>images/admin/skin/plugins/jcaptcha/jcaptcha.png</icon-url>
+    <icon-url>images/admin/skin/plugins/captcha/captcha.png</icon-url>
     <copyright>Copyright 2001-2011 Mairie de Paris</copyright>
     <core-version-dependency>
         <min-core-version>4.0.0</min-core-version>
