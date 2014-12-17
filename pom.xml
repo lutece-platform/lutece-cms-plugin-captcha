@@ -32,8 +32,8 @@
 		<jiraComponentId>11850</jiraComponentId>
 	</properties>
     <scm>
-        <connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/cms/plugin-captcha</connection>
-        <developerConnection>scm:svn:https://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/cms/plugin-captcha</developerConnection>
-        <url>http://dev.lutece.paris.fr/viewvc/lutece/portal/trunk/plugins/cms/plugin-captcha</url>
+        <connection>scm:git:https://github.com/lutece-platform/lutece-cms-plugin-captcha.git</connection>
+        <developerConnection>scm:git:https://github.com/lutece-platform/lutece-cms-plugin-captcha.git</developerConnection>
+        <url>https://github.com/lutece-platform/lutece-cms-plugin-captcha.git</url>
     </scm>
 </project>
