@@ -13,4 +13,11 @@
     </core-version-dependency>
     <db-pool-required>0</db-pool-required>
 
+    <!-- Admin Dashboard  components -->
+    <admindashboard-components>
+        <admindashboard-component>
+            <dashboard-component-name>captchaAdminDashboardComponent</dashboard-component-name>
+            <dashboard-component-class>fr.paris.lutece.plugins.captcha.web.CaptchaLutecePanelJspBean</dashboard-component-class>
+        </admindashboard-component>
+    </admindashboard-components>        
 </plug-in>

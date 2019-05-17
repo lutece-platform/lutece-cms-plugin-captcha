@@ -34,14 +34,16 @@
 package fr.paris.lutece.plugins.captcha.web;
 
 import fr.paris.lutece.plugins.captcha.service.CaptchaService;
+import fr.paris.lutece.portal.business.user.AdminUser;
 import fr.paris.lutece.portal.service.admin.AdminUserService;
 import fr.paris.lutece.portal.service.captcha.ICaptchaService;
 import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.portal.service.util.AppPathService;
-import fr.paris.lutece.portal.web.globalmanagement.AbstractGMLutecePanel;
+import fr.paris.lutece.portal.service.dashboard.admin.AdminDashboardComponent;
 import fr.paris.lutece.portal.web.globalmanagement.GlobalManagementJspBean;
+import fr.paris.lutece.portal.web.l10n.LocaleService;
 import fr.paris.lutece.util.html.HtmlTemplate;
 
 import java.util.HashMap;
@@ -53,7 +55,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Panel for global management page
  */
-public class CaptchaLutecePanelJspBean extends AbstractGMLutecePanel
+public class CaptchaLutecePanelJspBean extends AdminDashboardComponent
 {
     /**
      * generated serial version UID
@@ -71,37 +73,29 @@ public class CaptchaLutecePanelJspBean extends AbstractGMLutecePanel
 
     private ICaptchaService _captchaService;
 
+
     /**
      * {@inheritDoc}
      */
     @Override
-    public String getPanelKey( )
+    public String getName( )
     {
-        return LABEL_TITLE_CAPTCHA;
+        return I18nService.getLocalizedString( LABEL_TITLE_CAPTCHA, LocaleService.getDefault() );
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public String getPanelTitle( )
-    {
-        return I18nService.getLocalizedString( LABEL_TITLE_CAPTCHA, AdminUserService.getLocale( getRequest( ) ) );
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getPanelContent( )
+    public String getDashboardData( AdminUser user, HttpServletRequest request )
     {
         ICaptchaService captchaService = getCaptchaService( );
-        Map<String, Object> model = new HashMap<String, Object>( );
+        Map<String, Object> model = new HashMap<>( );
         model.put( MARK_CURRENT_CAPTCHA_ENGINE, captchaService.getDefaultCaptchaEngineName( ) );
         model.put( MARK_LIST_CAPTCHA_ENGINE, captchaService.getCaptchaEngineNameList( ) );
         
         HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CAPTCHA_PANEL,
-                AdminUserService.getLocale( getRequest( ) ), model );
+                AdminUserService.getLocale( request ), model );
         
         return template.getHtml( );
     }
@@ -111,7 +105,7 @@ public class CaptchaLutecePanelJspBean extends AbstractGMLutecePanel
      * @return 2
      */
     @Override
-    public int getPanelOrder( )
+    public int getOrder( )
     {
         return 2;
     }
