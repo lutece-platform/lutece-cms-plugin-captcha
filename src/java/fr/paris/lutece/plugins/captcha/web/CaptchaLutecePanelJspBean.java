@@ -42,7 +42,6 @@ import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.portal.service.util.AppPathService;
 import fr.paris.lutece.portal.service.dashboard.admin.AdminDashboardComponent;
-import fr.paris.lutece.portal.web.globalmanagement.GlobalManagementJspBean;
 import fr.paris.lutece.portal.web.l10n.LocaleService;
 import fr.paris.lutece.util.html.HtmlTemplate;
 
@@ -120,7 +119,7 @@ public class CaptchaLutecePanelJspBean extends AdminDashboardComponent
         String strDefaultCaptcha = request.getParameter( PARAMETER_CAPTCHA_ENGINE );
         ICaptchaService captchaService = getCaptchaService( );
         captchaService.setDefaultCaptchaEngineName( strDefaultCaptcha );
-        return AppPathService.getBaseUrl( request ) + GlobalManagementJspBean.JSP_URL_GLOBAL_MANAGEMENT;
+        return AppPathService.getBaseUrl( request );
     }
 
     /**
