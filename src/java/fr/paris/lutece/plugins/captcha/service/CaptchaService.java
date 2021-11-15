@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2014, Mairie de Paris
+ * Copyright (c) 2002-2021, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -43,7 +43,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
-
 
 /**
  * Captcha service
@@ -123,8 +122,7 @@ public class CaptchaService implements ICaptchaService
     @Override
     public String getDefaultCaptchaEngineName( )
     {
-        String strDefaultCaptcha = DatastoreService.getDataValue( DATASTORE_KEY_DEFAULT_CAPTCHA_ENGINE,
-                StringUtils.EMPTY );
+        String strDefaultCaptcha = DatastoreService.getDataValue( DATASTORE_KEY_DEFAULT_CAPTCHA_ENGINE, StringUtils.EMPTY );
         if ( StringUtils.isBlank( strDefaultCaptcha ) )
         {
             // If there is no default captcha engine, we get the first one from the captcha engine list

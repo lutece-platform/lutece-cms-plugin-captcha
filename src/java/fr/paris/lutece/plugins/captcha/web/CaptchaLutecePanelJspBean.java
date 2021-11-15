@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2014, Mairie de Paris
+ * Copyright (c) 2002-2021, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +51,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 /**
  * Panel for global management page
  */
@@ -73,14 +72,13 @@ public class CaptchaLutecePanelJspBean extends AdminDashboardComponent
 
     private ICaptchaService _captchaService;
 
-
     /**
      * {@inheritDoc}
      */
     @Override
     public String getName( )
     {
-        return I18nService.getLocalizedString( LABEL_TITLE_CAPTCHA, LocaleService.getDefault() );
+        return I18nService.getLocalizedString( LABEL_TITLE_CAPTCHA, LocaleService.getDefault( ) );
     }
 
     /**
@@ -93,15 +91,15 @@ public class CaptchaLutecePanelJspBean extends AdminDashboardComponent
         Map<String, Object> model = new HashMap<>( );
         model.put( MARK_CURRENT_CAPTCHA_ENGINE, captchaService.getDefaultCaptchaEngineName( ) );
         model.put( MARK_LIST_CAPTCHA_ENGINE, captchaService.getCaptchaEngineNameList( ) );
-        
-        HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CAPTCHA_PANEL,
-                AdminUserService.getLocale( request ), model );
-        
+
+        HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CAPTCHA_PANEL, AdminUserService.getLocale( request ), model );
+
         return template.getHtml( );
     }
 
     /**
      * Returns the panel's order. This panel is a second panel.
+     * 
      * @return 2
      */
     @Override
@@ -112,7 +110,9 @@ public class CaptchaLutecePanelJspBean extends AdminDashboardComponent
 
     /**
      * Update the default captcha to use
-     * @param request The request
+     * 
+     * @param request
+     *            The request
      * @return The next URL to redirect to
      */
     public String updateDefaultCaptcha( HttpServletRequest request )
@@ -125,6 +125,7 @@ public class CaptchaLutecePanelJspBean extends AdminDashboardComponent
 
     /**
      * Get a captcha service instance
+     * 
      * @return An instance of the captcha servcie
      */
     private ICaptchaService getCaptchaService( )
